@@ -29,12 +29,12 @@ function clearData() {
     city.textContent = '';
     count.textContent = '';
     temp.textContent = '';
-    feel.textContent = 'Feels like: ';
-    humidity.textContent = 'Humidity: ';
-    wind.textContent = 'Wind: ';
+    feel.textContent = '';
+    humidity.textContent = '';
+    wind.textContent = '';
     weather.textContent = '';
     currentTime.textContent = '';
-    celsius.textContent = '°';
+    dataDiv.classList.remove('data-animation')
 }
 
 
@@ -49,10 +49,10 @@ function showTemp(main) {
     let flag = document.createElement('img')
     flag.src = `https://flagsapi.com/${main.sys.country}/flat/32.png`
     count.appendChild(flag);
-    temp.textContent += `${toCelsius(main.main.temp)}`;
-    feel.textContent += `${toCelsius(main.main.feels_like)}°`;
-    humidity.textContent += `${main.main.humidity}%`;
-    wind.textContent += `${main.wind.speed} m/s`;
+    temp.textContent = `${toCelsius(main.main.temp)}°`;
+    feel.textContent = `Feels like: ${toCelsius(main.main.feels_like)}°`;
+    humidity.textContent = `Humidity: ${main.main.humidity}%`;
+    wind.textContent = `Wind: ${main.wind.speed} m/s`;
     let weatherStatus = main.weather[0].description
     let weatherCode = main.weather[0].icon
     let figure = document.createElement('figure')
@@ -71,10 +71,12 @@ function showTemp(main) {
     let miliseconds = seconds*1000
     let date = new Date(miliseconds).toUTCString();
     currentTime.textContent += date
+    dataDiv.classList.add('data-animation')
 };
 
 userBotton.addEventListener('click', function() {
     if (firstRun() == false) {clearData()};
+    if (userInput.value == '') {return}
     let call = callAPI(userInput.value);
     showTemp(call);
 });

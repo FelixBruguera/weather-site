@@ -12,12 +12,14 @@
         <p>Weather Detector</p>
     </nav>
     <div id="user">
-        <input type="text" required="required">
-        <button type="submit" id="user-input">Search</button>
+        <form action="#">
+            <input type="text" required placeholder="Enter a city or a country">
+            <button type="submit" id="user-input">Search</button>
+        </form>
     </div>
     <div id="data">
             <div id="data-header">
-                <p id='data-city'>Enter a city</p>
+                <p id='data-city'></p>
                 <figure id='data-country'></figure>
                 <p id='data-time'></p>
             </div>

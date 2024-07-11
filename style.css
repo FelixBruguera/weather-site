@@ -2,23 +2,24 @@
 
 body {
     display: grid;
-    grid-template: 1fr 0.5fr 4.5fr/ repeat(5, 1fr);
+    grid-template: 1fr 0.5fr 6fr/ repeat(5, 1fr);
     margin: 0;
     padding: 0;
     gap: 30px;
     font-size: 18px;
     background-color: black;
     font-family: 'Oxygen', sans-serif;
+    background-color: rgb(0, 12, 22);
 }
 #header {
-    background-color: lightgray;
+    background: rgb(1 47 75);
     grid-area: 1 / span 5;
     font-size: 2rem;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     padding: 0px 0px 0px 15px;
-    color: black;
+    color: white;
     height: 70px;
     font-family: 'Roboto', sans-serif;
     font-weight: 800;
@@ -32,14 +33,23 @@ body {
 #data {
     grid-area: 3 / 2 / 4 / span 3;
     display: grid;
-    background-color: grey;
     color: azure;
     display: grid;
     grid-template: 1fr 3fr 1fr / 1fr;
     align-items: center;
     border-radius: 25px;
-    background: rgb(1,43,70);
     background: linear-gradient(90deg, rgba(1,43,70,1) 0%, rgba(0,194,255,1) 100%);
+}
+.data-animation {
+    animation: slidein 1s ease-in-out;
+}
+@keyframes slidein {
+    0% {
+        opacity: 5%;
+    }
+    100% {
+        opacity: 100%;
+    }
 }
 #data-header {
     background-color: rgba(0,194,255,0.1);
@@ -123,4 +133,8 @@ button {
     color: azure;
     border-radius: 15px;
     width: 100px;
+}
+form {
+    display: flex;
+    align-items: strech;
 }
